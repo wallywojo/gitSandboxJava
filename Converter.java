@@ -1,5 +1,3 @@
-package cfConverter;
-
 /*
  * cfConverter requires no other files
  */
