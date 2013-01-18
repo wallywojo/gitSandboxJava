@@ -26,12 +26,19 @@ public class Converter extends JFrame{
 		
 		//Add the text input box
 		JTextField txtCelsius = new JTextField(15);
-		frame.getContentPane().add(txtCelsius);
 		
 		//Add the "Celsius" label
 		JLabel label = new JLabel("Celsius");
-		frame.getContentPane().add(label);
-		
+
+
+        //add the gridcontraints
+        GridBagContraints c = new GridBagConstraints();
+        c.gridWidth = GridBagConstraints.REMAINDER;
+        c.fill=GridBagConstraints.HORIZONTAL;
+        
+        add(ttxtCelsius);
+        add(lblCelsus);
+        
 		//Display the window
 		frame.pack();
 		frame.setVisible(true);
@@ -43,7 +50,7 @@ public class Converter extends JFrame{
 		//creating and showing this applications GUI
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				createandShowGUI();
+
 			}
 		});
 	}
