@@ -31,13 +31,13 @@ public class Converter extends JFrame{
 		JLabel label = new JLabel("Celsius");
 
 
-        //add the gridcontraints
-        GridBagContraints c = new GridBagConstraints();
-        c.gridWidth = GridBagConstraints.REMAINDER;
-        c.fill=GridBagConstraints.HORIZONTAL;
+        	//add the gridcontraints
+        	GridBagContraints c = new GridBagConstraints();
+        	c.gridWidth = GridBagConstraints.REMAINDER;
+        	c.fill=GridBagConstraints.HORIZONTAL;
         
-        add(ttxtCelsius);
-        add(lblCelsus);
+        	add(ttxtCelsius);
+        	add(lblCelsus);
         
 		//Display the window
 		frame.pack();
