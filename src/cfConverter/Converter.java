@@ -58,16 +58,21 @@ public class Converter extends JFrame{
 			}
 		});
 		
+		txtCelsius.addFocusListener(new FocusAdapter() {
+			public void focusGained(FocusEvent evt) {
+				SwingUtilities.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						txtCelsius.selectAll();
+					}
+				});
+			}
+		});	
+		
 		//Display the window
 		setSize(325, 100);
 		setVisible(true);
 	}
-	
-	txtCelsius.addFocusListener(new FocusAdapter(){
-		public void focusGained(FocusEvent evt) {
-			txtCelsius.selectAll();
-		}
-	});
 	
 	private void convertButtonActionPerformed(ActionEvent evt) {
 		// do something with data in txtCelsius test field
