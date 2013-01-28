@@ -16,13 +16,14 @@ public class Converter extends JFrame{
  */
 	//class declarations
 	JTextField txtCelsius;
-	TextHandler handler = null;
-	
+	JLabel lblFaren;
+	JButton btnConvert;
 	
 	//constructor
 	public Converter(){
 		//JTextField txtCelsius = new JTextField();
 		//JLabel lblCelsius = new JLabel();
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Celsius Converter");
@@ -36,35 +37,47 @@ public class Converter extends JFrame{
 		gui.add(labels,BorderLayout.WEST);
 		gui.add(controls,BorderLayout.CENTER);
 		
-		//Add the text input box
+		//establish fields with variables we will later reference
 		txtCelsius = new JTextField(15);
+		txtCelsius.setText("0");
+		lblFaren = new JLabel("32 Farenheit");
+		btnConvert = new JButton("Convert");
 		
 		//Add the first row
 		labels.add(txtCelsius);
 		controls.add(new JLabel("Celsius"));
 		
 		//Add the second row
-		//placeholder for adding in command button
-		//labels.
-		controls.add(new JLabel(""));
-		
-		handler = new TextHandler();
-		txtCelsius.addActionListener(handler);
+		labels.add(btnConvert);
+		controls.add(lblFaren);
         
+		// add action listener for convert button
+		btnConvert.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				convertButtonActionPerformed(evt);
+			}
+		});
+		
 		//Display the window
 		setSize(325, 100);
 		setVisible(true);
 	}
 	
-	//Inner class TextHandler
-	private class TextHandler implements ActionListener {
-		
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == txtCelsius) {
-				// do something with data in txtCelsius test field
-				JOptionPane.showMessageDialog(null, e.getActionCommand());
-			}
+	txtCelsius.addFocusListener(new FocusAdapter(){
+		public void focusGained(FocusEvent evt) {
+			txtCelsius.selectAll();
 		}
+	});
+	
+	private void convertButtonActionPerformed(ActionEvent evt) {
+		// do something with data in txtCelsius test field
+		//JOptionPane.showMessageDialog(null,txtCelsius.getText());
+		// convert calculation
+		int intTemp;
+		double temp;
+		temp = Double.parseDouble(txtCelsius.getText());
+		intTemp = (int)((temp*1.8)+32);
+		lblFaren.setText(intTemp + " Farenheit");
 	}
 	
 	public static void main(String args[]) {
